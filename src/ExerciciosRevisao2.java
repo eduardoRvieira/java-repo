@@ -22,5 +22,16 @@ public class ExerciciosRevisao2 {
 		
 		System.out.println("A hipotenusa é: " + hipotenusa);
 	}
+	
+	public static void ex2(Scanner sc) {
+		System.out.println("=== Exercício 2 ===");
+		
+		System.out.println("Insira o lado do triângulo: ");
+		double l = sc.nextDouble();
+		
+		double area = l*l;
+		
+		System.out.println("A área do quadrado é: " + area);
+	}
 
 }
