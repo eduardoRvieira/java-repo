@@ -8,6 +8,7 @@ public class ExerciciosRevisao2 {
 		 ex1(sc);
 		 ex2(sc);
 		 ex3(sc);
+		 ex4(sc);
 		 
 		 sc.close();
 	}
@@ -71,5 +72,24 @@ public class ExerciciosRevisao2 {
 	    System.out.printf("Valor recebido pela venda: R$ %.2f%n", valorVenda);
 	    System.out.printf("Corretagem da venda: R$ %.2f%n", corretagemVenda);
 	    System.out.printf("Lucro final: R$ %.2f%n", lucroFinal);
+	}
+	
+	public static void ex4(Scanner sc) {
+		System.out.println("\n=== Exercício 4 ===");
+		int tempo1 = 5;
+		int tempo2 = 8;
+		int tempo3 = 12;
+		
+		System.out.println("Insira a velocidade para cálculo de distância (em km/h): ");
+		double velocidade = sc.nextDouble();
+		
+		double distancia1 = tempo1 * velocidade; 
+		double distancia2 = tempo2 * velocidade; 
+		double distancia3 = tempo3 * velocidade; 
+		
+		System.out.println("A distância que o carro percorrerá em 5 horas é de: " + distancia1 + "km");
+		System.out.println("A distância que o carro percorrerá em 8 horas é de: " + distancia2 + "km");
+		System.out.println("A distância que o carro percorrerá em 12 horas é de: " + distancia3 + "km");
+		
 	}
 }
