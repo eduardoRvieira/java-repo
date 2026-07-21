@@ -97,19 +97,28 @@ public class ExerciciosRevisao2 {
 	public static void ex5(Scanner sc) {
 		System.out.println("\n=== Exercício 5 ===");
 		
-		double a = 1;
-		double b = 1;
-		double c = 1;
+		double a = 2;
+		double b = 3;
+		double c = 8;
 		double d = 1;
-		double e = 1;
-		double f = 1;
+		double e = -2;
+		double f = -3;
 		
 		double g = (a*e)-(b*d);
 		
-		double x = ((c*e)-(b*f))/g;
-		double y = ((a*f)-(c*d))/g;
+		if (g == 0) {
+		    System.out.println("O sistema não possui solução única.");
+		} else {
+		    double x = ((c * e) - (b * f)) / g;
+		    double y = ((a * f) - (c * d)) / g;
+
+		    System.out.println("x = " + x);
+		    System.out.println("y = " + y);
+		    double formula1 = (a*x) + (b*y);
+		    double formula2 = (d*x) + (e*y);
+		    System.out.println(formula1);
+		    System.out.println(formula2);
+		}
 		
-		System.out.println(x);
-		System.out.println(y);
 	}
 }
