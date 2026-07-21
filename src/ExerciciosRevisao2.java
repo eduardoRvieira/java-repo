@@ -10,6 +10,7 @@ public class ExerciciosRevisao2 {
 		 ex3(sc);
 		 ex4(sc);
 		 ex5(sc);
+		 ex6(sc);
 		 
 		 sc.close();
 	}
@@ -119,6 +120,23 @@ public class ExerciciosRevisao2 {
 		    System.out.println(formula1);
 		    System.out.println(formula2);
 		}
+	}
+	
+	public static void ex6(Scanner sc) {
+		System.out.println("\n=== Exercício 6 ===");
 		
+		System.out.println("Insira a área de um terreno (em m2): ");
+		double area = sc.nextDouble();
+		
+		double m2_por_acre = 4046.86;
+		double ft2_por_acre = 43560;
+		double hectares_por_acre = 0.404686;
+		double acre = area/m2_por_acre;
+		double areaft2 = acre*ft2_por_acre;
+		double areahectar = acre*hectares_por_acre;
+		
+		System.out.println("Acres: " + acre);
+		System.out.println("Pés quadrados: " + areaft2);
+		System.out.println("Hectares: " + areahectar);
 	}
 }
