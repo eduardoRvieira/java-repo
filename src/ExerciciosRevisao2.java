@@ -9,6 +9,7 @@ public class ExerciciosRevisao2 {
 		 ex2(sc);
 		 ex3(sc);
 		 ex4(sc);
+		 ex5(sc);
 		 
 		 sc.close();
 	}
@@ -91,5 +92,24 @@ public class ExerciciosRevisao2 {
 		System.out.println("A distância que o carro percorrerá em 8 horas é de: " + distancia2 + "km");
 		System.out.println("A distância que o carro percorrerá em 12 horas é de: " + distancia3 + "km");
 		
+	}
+	
+	public static void ex5(Scanner sc) {
+		System.out.println("\n=== Exercício 5 ===");
+		
+		double a = 1;
+		double b = 1;
+		double c = 1;
+		double d = 1;
+		double e = 1;
+		double f = 1;
+		
+		double g = (a*e)-(b*d);
+		
+		double x = ((c*e)-(b*f))/g;
+		double y = ((a*f)-(c*d))/g;
+		
+		System.out.println(x);
+		System.out.println(y);
 	}
 }
