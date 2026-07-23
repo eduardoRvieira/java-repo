@@ -324,7 +324,23 @@ public class ExerciciosDecisao {
 			default:
 				System.out.println("Consoante");
 				break;
-				
+		}
+	}
+	
+	public static void ex10(Scanner sc) {
+		System.out.println("\n=== Exercício 10 ===");
+		
+		System.out.println("Insira um ano: ");
+		int ano = sc.nextInt();
+		
+		if (ano%400==0) {
+			System.out.println(ano +" é um ano bissexto.");
+		}
+		else if (ano%4==0 && ano%100!=0) {
+			System.out.println(ano +" é um ano bissexto.");
+		}
+		else {
+			System.out.println(ano +" não é um ano bissexto.");
 		}
 	}
 }
