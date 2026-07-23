@@ -13,6 +13,7 @@ public class ExerciciosDecisao {
 		ex6(sc);
 		ex7(sc);
 		ex8(sc);
+		ex9(sc);
 		
 		sc.close();
 	}
@@ -305,6 +306,25 @@ public class ExerciciosDecisao {
 		}
 		else {
 			System.out.println("Valor a pagar: R$"+ valor);
+		}
+	}
+	
+	public static void ex9(Scanner sc) {
+		System.out.println("\n=== Exercício 9 ===");
+		
+		System.out.println("Insira uma letra: ");
+		String letra = sc.next();
+		
+		String diminuir = letra.toLowerCase();
+		
+		switch (diminuir) {
+			case "a", "e", "i", "o", "u":
+				System.out.println("Vogal");
+				break;
+			default:
+				System.out.println("Consoante");
+				break;
+				
 		}
 	}
 }
