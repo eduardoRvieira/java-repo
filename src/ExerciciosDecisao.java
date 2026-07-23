@@ -267,35 +267,44 @@ public class ExerciciosDecisao {
 			case "+":
 				resultado = valor1+valor2;
 				System.out.println(valor1 + " + " + valor2 + " = " + resultado);
-				System.out.println((resultado>0) ? "Negativo": "Positivo");
-				System.out.println((resultado%2==0) ? "Par": "Ímpar");
 				break;
 			case "-":
 				resultado = valor1-valor2;
 				System.out.println(valor1 + " - " + valor2 + " = " + resultado);
-				System.out.println((resultado>0) ? "Negativo": "Positivo");
-				System.out.println((resultado%2==0) ? "Par": "Ímpar");
 				break;
 			case "*":
 				resultado = valor1*valor2;
 				System.out.println(valor1 + " * " + valor2 + " = " + resultado);
-				System.out.println((resultado>0) ? "Negativo": "Positivo");
-				System.out.println((resultado%2==0) ? "Par": "Ímpar");
 				break;
 			case "/":
 				resultado = valor1/valor2;
 				System.out.println(valor1 + " / " + valor2 + " = " + resultado);
-				System.out.println((resultado>0) ? "Negativo": "Positivo");
-				System.out.println((resultado%2==0) ? "Par": "Ímpar");
 				break;
 			default:
 				System.out.println("Operação inválida");
 				break;
 		}
 		
+		System.out.println((resultado<0) ? "Negativo": "Positivo");
+		System.out.println((resultado%2==0) ? "Par": "Ímpar");
+		
 	}
 	
 	public static void ex8(Scanner sc) {
+		System.out.println("\n=== Exercício 8 ===");
 		
+		System.out.println("Insira o valor do produto comprado: ");
+		double valor = sc.nextDouble();
+		System.out.println("Insira a forma de pagamento (cheque ou dinheiro): ");
+		String f_pagamento = sc.next();
+		
+		if (valor >=100 && f_pagamento.equalsIgnoreCase("dinheiro")) {
+			double desconto = valor*0.1;
+			double novo_valor = valor - desconto;
+			System.out.println("Pagamento maior ou igual a R$100 e pago no dinheiro, desconto de 10%. Novo valor: " + novo_valor);
+		}
+		else {
+			System.out.println("Valor a pagar: R$"+ valor);
+		}
 	}
 }
