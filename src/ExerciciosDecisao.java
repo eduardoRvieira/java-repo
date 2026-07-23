@@ -9,6 +9,12 @@ public class ExerciciosDecisao {
 		ex2(sc);
 		ex3(sc);
 		ex4(sc);
+		ex5(sc);
+		ex6(sc);
+		ex7(sc);
+		ex8(sc);
+		
+		sc.close();
 	}
 	
 	public static void ex1(Scanner sc) {
@@ -123,7 +129,173 @@ public class ExerciciosDecisao {
 				System.out.println("Operação inválida");
 				break;
 		}
+	}
+	
+	public static void ex5(Scanner sc) {
+		System.out.println("\n=== Exercício 5 ===");
+		
+		System.out.println("Valor da compra:");
+		int compra = sc.nextInt();
+
+		System.out.println("Valor do pagamento:");
+		int pagamento = sc.nextInt();
+
+		if (pagamento < compra) {
+		    System.out.println("Pagamento Negado");
+		} else {
+		    int troco = pagamento - compra;
+
+		    int nota100 = troco / 100;
+		    int resto = troco % 100;
+
+		    int nota10 = resto / 10;
+		    resto = resto % 10;
+
+		    int nota1 = resto;
+
+		    System.out.println("Troco: R$ " + troco);
+		    System.out.println("Notas de R$100: " + nota100);
+		    System.out.println("Notas de R$10 : " + nota10);
+		    System.out.println("Notas de R$1  : " + nota1);
+		}
+	}
+	
+	public static void ex6(Scanner sc) {
+		System.out.println("\n=== Exercício 6 ===");
+		int nota100 = 5;
+		int nota50 = 10;
+		int nota20 = 10;
+		int nota10 = 20;
+		
+		int opcao = 0;
+		
+		while(opcao != 3) {
+			System.out.println("\n==== CAIXA ELETRÔNICO ====");
+			System.out.println("\n1 - Ver estoque");
+			System.out.println("2 - Realizar Saque");
+			System.out.println("3 - Sair");
 			
+			System.out.println("\nEscolha: ");
+			opcao = sc.nextInt();
+			
+			switch(opcao) {
+			
+			case 1:
+				int total = (nota100*100) + (nota50*50) + (nota20*20) + (nota10*10);
+				System.out.println("\nESTOQUE DE CAIXA");
+				System.out.println("Notas de R$100: " + nota100);
+				System.out.println("Notas de R$50: " + nota50);
+				System.out.println("Notas de R$20: " + nota20);
+				System.out.println("Notas de R$10: " + nota10);
+				System.out.println("Total disponível: R$" + total);
+				break;
+			case 2:
+				System.out.println("\nDigite o valor do saque: ");
+				int valor = sc.nextInt();
+				
+				if(valor % 10 != 0) {
+					System.out.println("Valor inválido! O saque deve ser múltiplo de 10.");
+					break;
+				}
+				int usar100;
+				int usar50;
+				int usar20;
+				int usar10;
+				
+				usar100 = Math.min(valor/100, nota100);
+				int restante = valor - (usar100 * 100);
+				
+				usar50 = Math.min(restante/50, nota50);
+				restante = restante - (usar50 * 50);
+				
+				usar20 = Math.min(restante/20, nota20);
+				restante = restante - (usar20 * 20);
+				
+				usar10 = Math.min(restante/10, nota10);
+				restante = restante - (usar10 * 10);
+				
+				if(restante == 0) {
+					System.out.println("\nSaque realizado com sucesso!");
+					System.out.println("Notas entregues:");
+					System.out.println("R$100: " + usar100);
+					System.out.println("R$50: " + usar50);
+					System.out.println("R$20: " + usar20);
+					System.out.println("R$10: " + usar10);
+					
+					nota100 -= usar100;
+					nota50 -= usar50;
+					nota20 -= usar20;
+					nota10 -= usar10;
+				} else {
+					System.out.println("\nNão foi possível realizar o saque.");
+					System.out.println("O caixa não possui cédulas suficientes para esse valor.");
+				}
+				break;
+			case 3:
+				System.out.println("Programa encerrado.");
+				break;
+			default:
+				System.out.println("Insira uma opção válida.");
+				break;
+			}
+		}
+	}
+	
+	public static void ex7(Scanner sc) {
+		System.out.println("\n=== Exercício 7 ===");
+		
+		System.out.println("\n=== CALCULADORA ===");
+		System.out.println("\n 7 8 9");
+		System.out.println("\n 4 5 6");
+		System.out.println("\n 1 2 3");
+		System.out.println("\n   0  ");
+		
+		System.out.println("\n+ ADIÇÃO");
+		System.out.println("- SUBTRAÇÃO");
+		System.out.println("* MULTIPLICAÇÃO");
+		System.out.println("/ DIVISÃO");
+		
+		System.out.println("Insira o primeiro valor: ");
+		int valor1 = sc.nextInt();
+		System.out.println("Insira a operação matemática: ");
+		String operacao = sc.next();
+		System.out.println("Insira o segundo valor: ");
+		int valor2 = sc.nextInt();
+		double resultado = 0;
+		
+		switch(operacao) {
+			case "+":
+				resultado = valor1+valor2;
+				System.out.println(valor1 + " + " + valor2 + " = " + resultado);
+				System.out.println((resultado>0) ? "Negativo": "Positivo");
+				System.out.println((resultado%2==0) ? "Par": "Ímpar");
+				break;
+			case "-":
+				resultado = valor1-valor2;
+				System.out.println(valor1 + " - " + valor2 + " = " + resultado);
+				System.out.println((resultado>0) ? "Negativo": "Positivo");
+				System.out.println((resultado%2==0) ? "Par": "Ímpar");
+				break;
+			case "*":
+				resultado = valor1*valor2;
+				System.out.println(valor1 + " * " + valor2 + " = " + resultado);
+				System.out.println((resultado>0) ? "Negativo": "Positivo");
+				System.out.println((resultado%2==0) ? "Par": "Ímpar");
+				break;
+			case "/":
+				resultado = valor1/valor2;
+				System.out.println(valor1 + " / " + valor2 + " = " + resultado);
+				System.out.println((resultado>0) ? "Negativo": "Positivo");
+				System.out.println((resultado%2==0) ? "Par": "Ímpar");
+				break;
+			default:
+				System.out.println("Operação inválida");
+				break;
+		}
+		
+	}
+	
+	public static void ex8(Scanner sc) {
 		
 	}
 }
