@@ -8,6 +8,7 @@ public class ExerciciosDecisao {
 		ex1(sc);
 		ex2(sc);
 		ex3(sc);
+		ex4(sc);
 	}
 	
 	public static void ex1(Scanner sc) {
@@ -50,7 +51,7 @@ public class ExerciciosDecisao {
 	public static void ex3(Scanner sc) {
 		System.out.println("\n=== Exercício 3 ===");
 		
-		System.out.println("=== CÁLCULO DE PREÇO DE CAIXA ===");
+		System.out.println("\n=== CÁLCULO DE PREÇO DE CAIXA ===");
 		System.out.println("\n1 - Laranja");
 		System.out.println("2 - Limão");
 		System.out.println("3 - Morango");
@@ -77,5 +78,52 @@ public class ExerciciosDecisao {
 				System.out.println("Insira uma opção válida.");
 				break;
 		}
+	}
+	
+	public static void ex4(Scanner sc) {
+		System.out.println("\n=== Exercício 4 ===");
+		
+		System.out.println("\n=== CALCULADORA ===");
+		System.out.println("\n 7 8 9");
+		System.out.println("\n 4 5 6");
+		System.out.println("\n 1 2 3");
+		System.out.println("\n   0  ");
+		
+		System.out.println("\n+ ADIÇÃO");
+		System.out.println("- SUBTRAÇÃO");
+		System.out.println("* MULTIPLICAÇÃO");
+		System.out.println("/ DIVISÃO");
+		
+		System.out.println("Insira o primeiro valor: ");
+		int valor1 = sc.nextInt();
+		System.out.println("Insira a operação matemática: ");
+		String operacao = sc.next();
+		System.out.println("Insira o segundo valor: ");
+		int valor2 = sc.nextInt();
+		double resultado = 0;
+		
+		switch(operacao) {
+			case "+":
+				resultado = valor1+valor2;
+				System.out.println(valor1 + " + " + valor2 + " = " + resultado);
+				break;
+			case "-":
+				resultado = valor1-valor2;
+				System.out.println(valor1 + " - " + valor2 + " = " + resultado);
+				break;
+			case "*":
+				resultado = valor1*valor2;
+				System.out.println(valor1 + " * " + valor2 + " = " + resultado);
+				break;
+			case "/":
+				resultado = valor1/valor2;
+				System.out.println(valor1 + " / " + valor2 + " = " + resultado);
+				break;
+			default:
+				System.out.println("Operação inválida");
+				break;
+		}
+			
+		
 	}
 }
