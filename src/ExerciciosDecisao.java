@@ -5,16 +5,64 @@ public class ExerciciosDecisao {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		ex1(sc);
-		ex2(sc);
-		ex3(sc);
-		ex4(sc);
-		ex5(sc);
-		ex6(sc);
-		ex7(sc);
-		ex8(sc);
-		ex9(sc);
-		ex10(sc);
+		int opcao = -1;
+		
+		while (opcao != 0) {
+			System.out.println("\n=================================");
+			System.out.println("      MENU DE EXERCÍCIOS        ");
+			System.out.println("=================================");
+			System.out.println("1  - Par ou Ímpar");
+	        System.out.println("2  - Categoria do Nadador");
+	        System.out.println("3  - Preço da Caixa de Frutas");
+	        System.out.println("4  - Calculadora Simples");
+	        System.out.println("5  - Calculadora de Troco");
+	        System.out.println("6  - Caixa Eletrônico (Saque)");
+	        System.out.println("7  - Calculadora Avançada");
+	        System.out.println("8  - Desconto em Compras");
+	        System.out.println("9  - Vogal ou Consoante");
+	        System.out.println("10 - Ano Bissexto");
+	        System.out.println("0  - Sair do Programa");
+	        System.out.println("---------------------------------");
+	        System.out.print("Escolha uma opção: ");
+	        
+	        opcao = sc.nextInt();
+	        
+	        switch (opcao){
+	        	case 1:
+	        		ex1(sc);
+	        		break;
+	        	case 2:
+	        		ex2(sc);
+	        		break;
+	        	case 3:
+	        		ex4(sc);
+	        		break;
+	        	case 5:
+	        		ex5(sc);
+	        		break;
+	        	case 6:
+	        		ex6(sc);
+	        		break;
+	        	case 7:
+	        		ex7(sc);
+	        		break;
+	        	case 8:
+	        		ex8(sc);
+	        		break;
+	        	case 9:
+	        		ex9(sc);
+	        		break;
+	        	case 10:
+	        		ex10(sc);
+	        		break;
+	        	case 0:
+	        		System.out.println("Programa encerrado.");
+	        		break;
+	        	default:
+	        		System.out.println("Opcão inválida. Tente novamente.");
+	        		break;
+	        }
+		}
 		
 		sc.close();
 	}
