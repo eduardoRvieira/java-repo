@@ -14,6 +14,7 @@ public class ExerciciosDecisao {
 		ex7(sc);
 		ex8(sc);
 		ex9(sc);
+		ex10(sc);
 		
 		sc.close();
 	}
@@ -38,7 +39,13 @@ public class ExerciciosDecisao {
 		System.out.println("Insira a idade (em anos) do nadador para saber sua categoria: ");
 		int idade = sc.nextInt();
 		
-		if (idade <= 7) {
+		if (idade <0) {
+			System.out.println("Idade inválida!");
+		}
+		else if (idade <= 4) {
+			System.out.println("Sem categoria.");
+		}
+		else if (idade <= 7) {
 			System.out.println("Categoria Infantil A");
 		}
 		else if (idade <= 10) {
@@ -123,7 +130,7 @@ public class ExerciciosDecisao {
 				System.out.println(valor1 + " * " + valor2 + " = " + resultado);
 				break;
 			case "/":
-				resultado = valor1/valor2;
+				resultado = (double) valor1/valor2;
 				System.out.println(valor1 + " / " + valor2 + " = " + resultado);
 				break;
 			default:
@@ -278,7 +285,7 @@ public class ExerciciosDecisao {
 				System.out.println(valor1 + " * " + valor2 + " = " + resultado);
 				break;
 			case "/":
-				resultado = valor1/valor2;
+				resultado = (double) valor1/valor2;
 				System.out.println(valor1 + " / " + valor2 + " = " + resultado);
 				break;
 			default:
@@ -313,17 +320,20 @@ public class ExerciciosDecisao {
 		System.out.println("\n=== Exercício 9 ===");
 		
 		System.out.println("Insira uma letra: ");
-		String letra = sc.next();
+		String entrada = sc.next().toLowerCase();
 		
-		String diminuir = letra.toLowerCase();
-		
-		switch (diminuir) {
-			case "a", "e", "i", "o", "u":
-				System.out.println("Vogal");
-				break;
-			default:
-				System.out.println("Consoante");
-				break;
+		if (entrada.length() == 1 && Character.isLetter(entrada.charAt(0))) {
+			switch (entrada) {
+				case "a", "e", "i", "o", "u":
+					System.out.println("Vogal");
+					break;
+				default:
+					System.out.println("Consoante");
+					break;
+			}
+		} 
+		else {
+			System.out.println("Entrada inválida. Por favor, insira apenas uma letra");
 		}
 	}
 	
