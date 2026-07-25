@@ -8,6 +8,7 @@ public class ExerciciosRepeticao {
 		ex1(sc);
 		ex2(sc);
 		ex3(sc);
+		ex4(sc);
 		
 		sc.close();
 	}
@@ -69,6 +70,29 @@ public class ExerciciosRepeticao {
 	        System.out.println(numero + " NÃO é um número primo.");
 	    }
 		
+	}
+	
+	public static void ex4(Scanner sc) {
+		System.out.println("=== Exercício 4 ===");
+		
+		int senha = 1234;
+		int contador = 0;
+		boolean acertou = false;
+		
+		while (contador <3 && !acertou) {
+			System.out.println("Insira a senha numérica (Tentativa " + (contador + 1) + " de 3):");
+			int tentativa = sc.nextInt();
+			if (tentativa == senha) {
+				System.out.println("Acesso permitido.");
+				acertou = true;
+			} else {
+				System.out.println("Acesso negado.");
+				contador++;
+			}
+		}
+		if (!acertou) {
+			System.out.println("Acesso bloqueado.");
+		}
 	}
 
 }
