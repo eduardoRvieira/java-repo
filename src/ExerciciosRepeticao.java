@@ -7,6 +7,7 @@ public class ExerciciosRepeticao {
 		
 		ex1(sc);
 		ex2(sc);
+		ex3(sc);
 		
 		sc.close();
 	}
@@ -42,6 +43,32 @@ public class ExerciciosRepeticao {
 			}
 		}
 		System.out.println("Soma = " +soma);
+	}
+	
+	public static void ex3(Scanner sc) {
+		System.out.println("=== Exercício 3 ===");
+		
+		System.out.println("Insira um número: ");
+		int numero = sc.nextInt();
+		
+		boolean eh_primo = true;
+		
+		if (numero <= 1) {
+			eh_primo = false;
+		} else {
+			for (int i = 2; i < numero; i++) {
+				if (numero % i == 0) {
+					eh_primo = false;
+					break;
+				}
+			}
+		}
+		if (eh_primo) {
+	        System.out.println(numero + " é um número primo.");
+	    } else {
+	        System.out.println(numero + " NÃO é um número primo.");
+	    }
+		
 	}
 
 }
