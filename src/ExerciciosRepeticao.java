@@ -5,11 +5,46 @@ public class ExerciciosRepeticao {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		ex1(sc);
-		ex2(sc);
-		ex3(sc);
-		ex4(sc);
-		ex5(sc);
+		int opcao = -1;
+		
+		System.out.println("\n=================================");
+		System.out.println("      MENU DE EXERCÍCIOS        ");
+		System.out.println("=================================");
+		System.out.println("1  - Crescimento Comparativo de Altura");
+        System.out.println("2  - Soma de Números Pares em Intervalo");
+        System.out.println("3  - Verificação de Número Primo");
+        System.out.println("4  - Sistema de Autenticação por Senha");
+        System.out.println("5  - Sistema de Controle de Multas de Trânsito");
+        System.out.println("0  - Sair do Programa");
+        System.out.println("---------------------------------");
+        System.out.print("Escolha uma opção: ");
+        
+        opcao = sc.nextInt();
+        
+        switch (opcao){
+    	case 1:
+    		ex1(sc);
+    		break;
+    	case 2:
+    		ex2(sc);
+    		break;
+    	case 3:
+    		ex3(sc);
+    		break;
+    	case 4:
+    		ex4(sc);
+    		break;
+    	case 5:
+    		ex5(sc);
+    		break;
+    	case 0:
+    		System.out.println("Programa encerrado.");
+    		break;
+    	default:
+    		System.out.println("Opcão inválida. Tente novamente.");
+    		break;
+    }
+		
 		
 		sc.close();
 	}
@@ -31,7 +66,7 @@ public class ExerciciosRepeticao {
 	}
 	
 	public static void ex2(Scanner sc) {
-		System.out.println("=== Exercício 2 ===");
+		System.out.println("\n=== Exercício 2 ===");
 		
 		int inf = 3;
 		int sup = 12;
@@ -74,14 +109,14 @@ public class ExerciciosRepeticao {
 	}
 	
 	public static void ex4(Scanner sc) {
-		System.out.println("=== Exercício 4 ===");
+		System.out.println("\n=== Exercício 4 ===");
 		
 		int senha = 1234;
 		int contador = 0;
 		boolean acertou = false;
 		
 		while (contador <3 && !acertou) {
-			System.out.println("Insira a senha numérica (Tentativa " + (contador + 1) + " de 3):");
+			System.out.println("Insira a senha numérica (Tentativa " + (contador + 1) + " de 3): ");
 			int tentativa = sc.nextInt();
 			if (tentativa == senha) {
 				System.out.println("Acesso permitido.");
@@ -97,21 +132,55 @@ public class ExerciciosRepeticao {
 	}
 	
 	public static void ex5(Scanner sc) {
-		System.out.println("=== Exercício 5 ===");
+		System.out.println("\n=== Exercício 5 ===");
 		
-		int opcao = -1;
+		double totalArrecadado = 0;
 		
-		System.out.println("Insira o número de multas desse motorista: ");
-		int n_multas = sc.nextInt();
-		System.out.println("Insira o valor dessaa multa: ");
-		double valor_multa = sc.nextDouble();
+		int maiorNumeroMultas = 0;
+		int carteiraMaiorNumeroMultas = 0;
 		
-		while (opcao !=0) {
-			System.out.println("Insira o número da carteira do motorista. (Digite 0 para sair): ");
-			int n_carteira = sc.nextInt();
+		boolean continuar = true;
+		
+		while (continuar) {
+			System.out.println("\nInsira o número da carteira do motorista: ");
+			int numeroCarteira = sc.nextInt();
+			System.out.println("Insira a quantidade de multas desse motorista: ");
+			int qtdeMultas = sc.nextInt();
 			
+			double divida = 0;
 			
+			for (int i = 1; i <= qtdeMultas; i++) {
+				System.out.println("Insira o valor da multa " + i + ": ");
+				double valorMulta = sc.nextDouble();
+				divida += valorMulta;
+			}
+			
+			System.out.printf("\nDívida do motorista %d: R$ %.2f%n", numeroCarteira, divida);
+			
+			totalArrecadado += divida;
+			
+			if (qtdeMultas > maiorNumeroMultas) {
+				maiorNumeroMultas = qtdeMultas;
+				carteiraMaiorNumeroMultas = numeroCarteira;
+			} 
+			
+			System.out.println("\nDeseja cadastrar outro motorista?");
+			System.out.println("1 - Sim");
+			System.out.println("0 - Não (Sair)\n");
+			int opcao = sc.nextInt();
+			
+			if (opcao == 0) {
+				System.out.println("Programa encerrado.");
+				continuar = false;
+			} else if (opcao != 1) {
+				System.out.println("Opção inválida.");
+			}
 		}
+		
+		System.out.println("\n==== RELATÓRIO ====");
+		System.out.printf("Total arrecadado: R$ %.2f%n",  totalArrecadado);
+		System.out.println("Carteira com maior número de multas: " + carteiraMaiorNumeroMultas);
+		System.out.println("Quantidade de multas: " + maiorNumeroMultas);
 	}
 
 }

@@ -35,6 +35,9 @@ public class ExerciciosDecisao {
 	        		ex2(sc);
 	        		break;
 	        	case 3:
+	        		ex3(sc);
+	        		break;
+	        	case 4:
 	        		ex4(sc);
 	        		break;
 	        	case 5:
