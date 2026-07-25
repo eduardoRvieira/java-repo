@@ -9,6 +9,7 @@ public class ExerciciosRepeticao {
 		ex2(sc);
 		ex3(sc);
 		ex4(sc);
+		ex5(sc);
 		
 		sc.close();
 	}
@@ -92,6 +93,24 @@ public class ExerciciosRepeticao {
 		}
 		if (!acertou) {
 			System.out.println("Acesso bloqueado.");
+		}
+	}
+	
+	public static void ex5(Scanner sc) {
+		System.out.println("=== Exercício 5 ===");
+		
+		int opcao = -1;
+		
+		System.out.println("Insira o número de multas desse motorista: ");
+		int n_multas = sc.nextInt();
+		System.out.println("Insira o valor dessaa multa: ");
+		double valor_multa = sc.nextDouble();
+		
+		while (opcao !=0) {
+			System.out.println("Insira o número da carteira do motorista. (Digite 0 para sair): ");
+			int n_carteira = sc.nextInt();
+			
+			
 		}
 	}
 
