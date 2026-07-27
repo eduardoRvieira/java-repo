@@ -64,10 +64,11 @@ public class ExerciciosLista {
 		for (int i = 0; i < qtdeNumeros; i++) {
 			if (numeros[i] % 2 != 0) {
 				somaNumeros += numeros[i];
+				qtdeImpares++;
 			}
 		}
 		
-		double media = (double) somaNumeros/qtdeImpares;
+		double media = (qtdeImpares > 0) ? (double) somaNumeros/qtdeImpares : 0.0;
 		
 		System.out.printf("A média de números ímpares dessa lista é: %.2f%n", media);
 	}
@@ -83,7 +84,7 @@ public class ExerciciosLista {
 		for (int i = 0; i < idades.length; i++) {
 			
 			System.out.printf("Insira a idade %d: ", i+1);
-			idades[i] = sc.nextInt();
+			idades[i] = Integer.parseInt(sc.nextLine());
 			
 			if (idades[i] > 35) {
 				qtdePessoasSup35++;
@@ -121,9 +122,6 @@ public class ExerciciosLista {
 	}
 	
 	public static void ex4(Scanner sc) {
-		
-		sc.nextLine();
-		
 	    System.out.println("\n=== Exercício 4 ===");
 	    
 	    String clientes[] = new String[5];
@@ -157,28 +155,33 @@ public class ExerciciosLista {
 	    System.out.print("Quantas pessoas serão entrevistadas? ");
 	    int totalEntrevistados = Integer.parseInt(sc.nextLine());
 	
-	    String[][] filhos = new String[totalEntrevistados][];
+	    String[][] nomesFilhos = new String[totalEntrevistados][];
+	    int[][] idadesFilhos = new int[totalEntrevistados][];
 	    
 	    for (int i = 0; i < totalEntrevistados; i++) {
 	        System.out.printf("%n--- Entrevistado %d ---%n", i + 1);
 	        System.out.print("Quantidade de filhos: ");
 	        int qtdeFilhos = Integer.parseInt(sc.nextLine());
 	        
-	        filhos[i] = new String[qtdeFilhos];
+	        nomesFilhos[i] = new String[qtdeFilhos];
+	        idadesFilhos[i] = new int[qtdeFilhos];
 	        
 	        for (int j = 0; j < qtdeFilhos; j++) {
 	            System.out.printf("Nome do filho %d: ", j + 1);
-	            filhos[i][j] = sc.nextLine();
+	            nomesFilhos[i][j] = sc.nextLine();
+	            
+	            System.out.printf("Idade do filho %d: ", j + 1);
+	            idadesFilhos[i][j] = Integer.parseInt(sc.nextLine());
 	        }
 	    }
 	    
 	    System.out.println("\n=================================");
-	    System.out.println("====== RESULTADO DA PESQUISA =====");
+	    System.out.println("===== RESULTADO DA PESQUISA =====");
 	    System.out.println("=================================");
 	    System.out.printf("Total de pessoas entrevistadas: %d%n%n", totalEntrevistados);
 	    
-	    for (int i = 0; i < filhos.length; i++) {
-	        int qtdeFilhos = filhos[i].length;
+	    for (int i = 0; i < nomesFilhos.length; i++) {
+	        int qtdeFilhos = nomesFilhos[i].length;
 	        
 	        System.out.printf("Pessoa %d - Quantidade de filhos: %d%n", i + 1, qtdeFilhos);
 	        
@@ -186,7 +189,7 @@ public class ExerciciosLista {
 	            System.out.println("  (Não possui filhos)");
 	        } else {
 	            for (int j = 0; j < qtdeFilhos; j++) {
-	                System.out.printf("  - Filho %d: %s%n", j + 1, filhos[i][j]);
+	                System.out.printf("  - Filho %d: %s, %d ano(s)%n", j + 1, nomesFilhos[i][j], idadesFilhos[i][j]);
 	            }
 	        }
 	        System.out.println();
