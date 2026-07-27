@@ -1,1 +1,1 @@
-Exercícios de Revisão em Java - +Devs2Blu.
+Exercícios de Revisão em Java +Devs2Blu.
