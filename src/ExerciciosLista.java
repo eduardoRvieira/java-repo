@@ -9,10 +9,12 @@ public class ExerciciosLista {
 
 		do {
 			System.out.println("=================================");
-			System.out.println("MENU DE EXERCÍCIOS - ARRAYS");
+			System.out.println("== MENU DE EXERCÍCIOS - ARRAYS ==");
 			System.out.println("=================================");
 			System.out.println("1 - Média de Ímpares");
-			System.out.println("1 - Sair");
+			System.out.println("0 - Sair do programa");
+	        System.out.println("---------------------------------");
+	        System.out.println("Escolha uma opção: ");
 			opcao = sc.nextInt();
 			
 			switch (opcao){
@@ -34,6 +36,21 @@ public class ExerciciosLista {
 	
 	public static void ex1(Scanner sc) {
 		System.out.println("\n=== Exercício 1 ===");
+		
+		int numeros[] = {1, 2, 3, 41};
+		int qtdeNumeros = numeros.length;
+		
+		int somaNumeros = 0;
+		
+		for (int i = 0; i < qtdeNumeros; i++) {
+			if (numeros[i] % 2 != 0) {
+				somaNumeros += numeros[i];
+			}
+		}
+		
+		double media = (double) somaNumeros/qtdeNumeros;
+		
+		System.out.printf("A média de números ímpares dessa lista é: %.2f%n", media);
 	}
 
 }
