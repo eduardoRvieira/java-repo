@@ -18,7 +18,8 @@ public class ExerciciosLista {
 			System.out.println("0 - Sair do programa");
 	        System.out.println("---------------------------------");
 	        System.out.println("Escolha uma opção: ");
-			opcao = sc.nextInt();
+	        
+	        opcao = Integer.parseInt(sc.nextLine());
 			
 			switch (opcao){
 			case 1:
@@ -53,6 +54,7 @@ public class ExerciciosLista {
 		int numeros[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		int qtdeNumeros = numeros.length;
 		
+		int qtdeImpares = 0;
 		int somaNumeros = 0;
 		
 		for (int i = 0; i < qtdeNumeros; i++) {
@@ -61,7 +63,7 @@ public class ExerciciosLista {
 			}
 		}
 		
-		double media = (double) somaNumeros/qtdeNumeros;
+		double media = (double) somaNumeros/qtdeImpares;
 		
 		System.out.printf("A média de números ímpares dessa lista é: %.2f%n", media);
 	}
@@ -107,7 +109,7 @@ public class ExerciciosLista {
 				qtdeASup15++;
 			}
 		}
-		double mediaASup15 = (double) somaASup15/qtdeASup15;
+		double mediaASup15 = (qtdeASup15 > 0) ? (double) somaASup15/qtdeASup15 : 0.0;
 		
 		System.out.printf("\nA soma de elementos armazenados neste vetor que são inferiores a 15: %d%n", somaAInf15);
 		System.out.printf("A quantidade de elementos armazenados no vetor que são iguais a 15: %d%n", qtdeAIgual15);
