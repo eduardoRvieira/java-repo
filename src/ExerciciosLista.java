@@ -14,6 +14,7 @@ public class ExerciciosLista {
 			System.out.println("1 - Média de Ímpares em Vetor");
 			System.out.println("2 - Contador de idades +35 anos em Vetor");
 			System.out.println("3 - Soma, Contagem e Média Condicional em Vetor");
+			System.out.println("4 - Controle de Locações de DVDs e Bônus de Cliente em Vetor");
 			System.out.println("0 - Sair do programa");
 	        System.out.println("---------------------------------");
 	        System.out.println("Escolha uma opção: ");
@@ -28,6 +29,9 @@ public class ExerciciosLista {
 				break;
 			case 3:
 				ex3(sc);
+				break;
+			case 4:
+				ex4(sc);
 				break;
 			case 0:
 				System.out.println("Programa encerrado.");
@@ -107,8 +111,38 @@ public class ExerciciosLista {
 		
 		System.out.printf("\nA soma de elementos armazenados neste vetor que são inferiores a 15: %d%n", somaAInf15);
 		System.out.printf("A quantidade de elementos armazenados no vetor que são iguais a 15: %d%n", qtdeAIgual15);
-		System.out.printf("A média dos elementos armazenados no vetor que são superiores a 15: %.2f%n", mediaASup15);
+		System.out.printf("A média dos elementos armazenados no vetor que são superiores a 15: %.2f%n", mediaASup15);	
+	}
+	
+	public static void ex4(Scanner sc) {
 		
+		sc.nextLine();
+		
+	    System.out.println("\n=== Exercício 4 ===");
+	    
+	    String clientes[] = new String[5];
+	    int DVDsLocados[] = new int[5];
+	    int qtdeLocacaoGratis[] = new int[5];
+	    int qtdeClientes = clientes.length;
+	    
+	    System.out.println("Inserção de 5 clientes e a quantidade de DVDs locados em 2022 (a cada 10 locações o cliente tem direito a uma locação grátis).");
+	    
+	    for (int i = 0; i < qtdeClientes; i++) {
+	        System.out.printf("Insira o nome do cliente %d: ", i + 1);
+	        clientes[i] = sc.nextLine();
+	        
+	        System.out.printf("Insira a quantidade de DVDs locados de %s: ", clientes[i]);
+	        DVDsLocados[i] = Integer.parseInt(sc.nextLine());
+	        
+	        qtdeLocacaoGratis[i] = DVDsLocados[i] / 10;
+	    }
+	    
+	    System.out.printf("%-20s | %-18s | %-24s%n", "CLIENTE", "QTDE DE LOCAÇÕES", "QTDE DE LOCAÇÕES GRÁTIS");
+	    System.out.println("-----------------------------------------------------------------------");
+
+	    for (int i = 0; i < qtdeClientes; i++) {
+	        System.out.printf("%-20s | %-18d | %-24d%n", clientes[i], DVDsLocados[i], qtdeLocacaoGratis[i]);
+	    }
 	}
 
 }
