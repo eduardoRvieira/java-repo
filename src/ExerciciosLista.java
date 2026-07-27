@@ -15,6 +15,7 @@ public class ExerciciosLista {
 			System.out.println("2 - Contador de idades +35 anos em Vetor");
 			System.out.println("3 - Soma, Contagem e Média Condicional em Vetor");
 			System.out.println("4 - Controle de Locações de DVDs e Bônus de Cliente em Vetor");
+			System.out.println("5 - EXERCÍCIO BÔNUS - MATRIZES");
 			System.out.println("0 - Sair do programa");
 	        System.out.println("---------------------------------");
 	        System.out.println("Escolha uma opção: ");
@@ -33,6 +34,9 @@ public class ExerciciosLista {
 				break;
 			case 4:
 				ex4(sc);
+				break;
+			case 5:
+				ex5(sc);
 				break;
 			case 0:
 				System.out.println("Programa encerrado.");
@@ -146,5 +150,46 @@ public class ExerciciosLista {
 	        System.out.printf("%-20s | %-18d | %-24d%n", clientes[i], DVDsLocados[i], qtdeLocacaoGratis[i]);
 	    }
 	}
-
+	
+	public static void ex5(Scanner sc) {
+	    System.out.println("\n=== Exercício 5 ===");
+	    
+	    System.out.print("Quantas pessoas serão entrevistadas? ");
+	    int totalEntrevistados = Integer.parseInt(sc.nextLine());
+	
+	    String[][] filhos = new String[totalEntrevistados][];
+	    
+	    for (int i = 0; i < totalEntrevistados; i++) {
+	        System.out.printf("%n--- Entrevistado %d ---%n", i + 1);
+	        System.out.print("Quantidade de filhos: ");
+	        int qtdeFilhos = Integer.parseInt(sc.nextLine());
+	        
+	        filhos[i] = new String[qtdeFilhos];
+	        
+	        for (int j = 0; j < qtdeFilhos; j++) {
+	            System.out.printf("Nome do filho %d: ", j + 1);
+	            filhos[i][j] = sc.nextLine();
+	        }
+	    }
+	    
+	    System.out.println("\n=================================");
+	    System.out.println("====== RESULTADO DA PESQUISA =====");
+	    System.out.println("=================================");
+	    System.out.printf("Total de pessoas entrevistadas: %d%n%n", totalEntrevistados);
+	    
+	    for (int i = 0; i < filhos.length; i++) {
+	        int qtdeFilhos = filhos[i].length;
+	        
+	        System.out.printf("Pessoa %d - Quantidade de filhos: %d%n", i + 1, qtdeFilhos);
+	        
+	        if (qtdeFilhos == 0) {
+	            System.out.println("  (Não possui filhos)");
+	        } else {
+	            for (int j = 0; j < qtdeFilhos; j++) {
+	                System.out.printf("  - Filho %d: %s%n", j + 1, filhos[i][j]);
+	            }
+	        }
+	        System.out.println();
+	    }
+	}
 }
