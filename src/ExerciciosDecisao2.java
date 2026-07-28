@@ -48,7 +48,7 @@ public class ExerciciosDecisao2 {
                     ex6(sc);
                     break;
                 case 7:
-                    System.out.println("EM BREVE");
+                    ex7(sc);
                     break;
                 case 0:
                     System.out.println("Programa encerrado.");
@@ -244,6 +244,80 @@ public class ExerciciosDecisao2 {
         } else {
             System.out.println("Triângulo Isósceles (2 lados iguais).");
         }
+    }
+    
+    public static void ex7(Scanner sc) {
+        System.out.println("          AÇOUGUE - PROMOÇÃO              ");
+        System.out.println("1 - File Duplo");
+        System.out.println("2 - Alcatra");
+        System.out.println("3 - Picanha");
+        System.out.print("Escolha o tipo de carne (1, 2 ou 3): ");
+        int opcaoCarne = sc.nextInt();
+
+        System.out.print("Digite a quantidade em Kg: ");
+        double quantidade = sc.nextDouble();
+
+        String nomeCarne = "";
+        double precoKg = 0.0;
+
+        switch (opcaoCarne) {
+            case 1:
+                nomeCarne = "File Duplo";
+                if (quantidade <= 5) {
+                    precoKg = 4.90;
+                } else {
+                    precoKg = 5.80;
+                }
+                break;
+            case 2:
+                nomeCarne = "Alcatra";
+                if (quantidade <= 5) {
+                    precoKg = 5.90;
+                } else {
+                    precoKg = 6.80;
+                }
+                break;
+            case 3:
+                nomeCarne = "Picanha";
+                if (quantidade <= 5) {
+                    precoKg = 6.90;
+                } else {
+                    precoKg = 7.80;
+                }
+                break;
+            default:
+                System.out.println("Opção de carne inválida!");
+                sc.close();
+                return; 
+        }
+
+        double totalCarne = quantidade * precoKg;
+
+        // Tipo de Pagamento
+        System.out.println("\nForma de Pagamento:");
+        System.out.println("1 - Cartão (5% de desconto)");
+        System.out.println("2 - Dinheiro / Outros");
+        System.out.print("Escolha a opção de pagamento: ");
+        int tipoPagamento = sc.nextInt();
+
+        double desconto = 0.0;
+
+        if (tipoPagamento == 1) {
+            desconto = totalCarne * 0.05;
+        }
+
+        double totalAPagar = totalCarne - desconto;
+
+        System.out.println("\n==========================================");
+        System.out.println("             CUPOM FISCAL                 ");
+        System.out.println("==========================================");
+        System.out.printf("Carne escolhida: %s | Quantidade: %.2f Kg%n", nomeCarne, quantidade);
+        
+        System.out.printf("Cálculo: %.2f Kg x R$ %.2f = Total Bruto: R$ %.2f%n", quantidade, precoKg, totalCarne);
+        
+        System.out.printf("Desconto concedido: R$ %.2f%n", desconto);
+        System.out.printf("TOTAL A PAGAR: R$ %.2f%n", totalAPagar);
+        System.out.println("==========================================");
     }
 }
 
