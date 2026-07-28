@@ -5,9 +5,48 @@ public class ExerciciosRepeticao2 {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		
-		ex1();
-		ex2();
-		ex3(sc);
+		int opcao = -1;
+		
+		do {
+			System.out.println("\n====================================");
+			System.out.println("== MENU DE EXERCÍCIOS - REPETIÇÃO ==");
+			System.out.println("====================================");
+			System.out.println("1 - Resto da Divisão por 11");
+			System.out.println("2 - Projeção de Crescimento Populacional");
+			System.out.println("3 - Simulação Demográfica Dinâmica");
+			System.out.println("4 - Validação de Acesso Seguro");
+			System.out.println("5 - Cálculo Automático de Tabuada");
+			System.out.println("0 - Sair do programa");
+	        System.out.println("---------------------------------");
+	        System.out.println("Escolha uma opção: ");
+	        
+	        opcao = Integer.parseInt(sc.nextLine());
+	        
+	        switch (opcao) {
+	        	case 1:
+	        		ex1();
+	        		break;
+	        	case 2:
+	        		ex2();
+	        		break;
+	        	case 3:
+	        		ex3(sc);
+	        		break;
+	        	case 4:
+	        		System.out.println("EM BREVE");
+	        		break;
+	        	case 5:
+	        		System.out.println("EM BREVE");
+	        		break;
+	        	case 0:
+					System.out.println("Programa encerrado.");
+					break;
+				default:
+					System.out.println("Opção inválida! Tente novamente.");
+					break;
+	        } 
+        	
+        } while (opcao != 0);
 		
 		sc.close();
 	}
