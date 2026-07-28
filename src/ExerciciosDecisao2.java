@@ -39,10 +39,10 @@ public class ExerciciosDecisao2 {
                     ex3(sc);
                     break;
                 case 4:
-                    System.out.println("EM BREVE");
+                    ex4(sc);
                     break;
                 case 5:
-                    System.out.println("EM BREVE");
+                    ex5(sc);
                     break;
                 case 6:
                     System.out.println("EM BREVE");
@@ -82,7 +82,27 @@ public class ExerciciosDecisao2 {
     }
     
     public static void ex2(Scanner sc) {
-		System.out.println("\n=== Exercício 2 ===");
+        System.out.println("\n=== Exercício 2 ===");
+        
+        System.out.print("Insira seu sexo (M: Masculino - F: Feminino): ");
+        String sexo = sc.next().toUpperCase();
+        
+        System.out.print("Insira sua altura em metros (ex: 1,75): ");
+        double altura = sc.nextDouble();
+        
+        if (sexo.equals("M")) {
+            double pesoIdeal = (72.7 * altura) - 58;
+            System.out.printf("Seu peso ideal é: %.2f kg%n", pesoIdeal);
+        } else if (sexo.equals("F")) {
+            double pesoIdeal = (62.1 * altura) - 44.7;
+            System.out.printf("Seu peso ideal é: %.2f kg%n", pesoIdeal);
+        } else {
+            System.out.println("Entrada inválida! Digite apenas 'M' ou 'F'.");
+        }
+    }
+    
+    public static void ex3(Scanner sc) {
+		System.out.println("\n=== Exercício 3 ===");
 		
 		System.out.println("Insira a idade (em anos) do nadador para saber sua categoria: ");
 		int idade = sc.nextInt();
@@ -110,8 +130,8 @@ public class ExerciciosDecisao2 {
 		}
     }
     
-    public static void ex3(Scanner sc) {
-    	System.out.println("\n=== Exercício 3 ===");
+    public static void ex4(Scanner sc) {
+    	System.out.println("\n=== Exercício 4 ===");
     	
     	System.out.println("\nCálculo IMC");
     	
@@ -149,6 +169,54 @@ public class ExerciciosDecisao2 {
     	
         System.out.printf(" Seu IMC: %.2f%n", IMC);
         System.out.printf(" Classificação: %s%n", condicao);
+    }
+    
+    public static void ex5(Scanner sc) {
+    	System.out.println("\n=== Exercício 5 ===");
+    	
+    	double gas = 2.53;
+    	double eta = 2.09;
+    	double die = 1.92;
+    	
+    	boolean trocaOleo = false;
+    	
+    	System.out.println("Todos os clientes que abastecerem seus veículos com mais de 30 litros de etanol serão premiados com uma troca de óleo.");
+    	
+    	System.out.println("\n--- TABELA DE PREÇOS ---");
+        System.out.println("1 - Gasolina : R$ 2,53 / L");
+        System.out.println("2 - Etanol   : R$ 2,09 / L");
+        System.out.println("3 - Diesel   : R$ 1,92 / L");
+    	System.out.println("Escolha o tipo de combustível: ");
+    	int opcao = sc.nextInt();
+    	System.out.println("Insira a quantidade de litros que deseja abastecer: ");
+    	double qtdeComb = sc.nextDouble();
+    	
+    	double precoTotal = 0;
+    	
+    	switch (opcao) {
+    		case 1:
+    			precoTotal = qtdeComb * gas;
+    			break;
+    		case 2:
+    			precoTotal = qtdeComb * eta;
+    			if (qtdeComb > 30) {
+    				trocaOleo = true;
+    			}
+    			break;
+    		case 3:
+    			precoTotal = qtdeComb * die;
+    			break;
+    		default:
+    			System.out.println("Opção inválida. Insira uma entrada válida.");
+    			break;
+    	}
+    	
+    	System.out.printf("Total a ser pago: R$%.2f", precoTotal);
+    	if (trocaOleo) {
+    		System.out.println("\nCliente com direito a uma troca de óleo de cortesia.");
+    	} else {
+    		System.out.println("\nSem direito à troca de óleo de cortesia.");
+    	}
     }
 }
 
