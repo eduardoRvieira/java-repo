@@ -22,7 +22,7 @@ public class ExerciciosRepeticao2 {
             
             if (sc.hasNextInt()) {
                 opcao = sc.nextInt();
-                sc.nextLine(); 
+                sc.nextLine();
             } else {
                 sc.nextLine();
                 opcao = -1;
@@ -30,10 +30,10 @@ public class ExerciciosRepeticao2 {
             
             switch (opcao) {
                 case 1:
-                    ex1();
+                    ex1(sc);
                     break;
                 case 2:
-                    ex2();
+                    ex2(sc);
                     break;
                 case 3:
                     ex3(sc);
@@ -57,7 +57,7 @@ public class ExerciciosRepeticao2 {
         sc.close();
     }
     
-    public static void ex1() {
+    public static void ex1(Scanner sc) {
         System.out.println("\n=== Exercício 1 ===");
         
         int contador = 0;
@@ -73,10 +73,13 @@ public class ExerciciosRepeticao2 {
             }
         }
         
-        System.out.println("O 5º número maior que 1000 com resto 5 por 11 é: " + n);    
+        System.out.println("O 5º número maior que 1000 com resto 5 por 11 é: " + n);
+
+        System.out.println("\nPressione ENTER para voltar ao menu...");
+        sc.nextLine();
     }
     
-    public static void ex2() {
+    public static void ex2(Scanner sc) {
         System.out.println("\n=== Exercício 2 ===");
         
         double paisA = 80000;
@@ -90,6 +93,9 @@ public class ExerciciosRepeticao2 {
         }
         
         System.out.printf("O país A ultrapassa ou iguala a população do país B em %d anos.%n", anos);
+        
+        System.out.println("\nPressione ENTER para voltar ao menu...");
+        sc.nextLine();
     }
     
     public static void ex3(Scanner sc) {
@@ -152,6 +158,11 @@ public class ExerciciosRepeticao2 {
             desejarContinuar = sc.next().toUpperCase().charAt(0);
 
         } while (desejarContinuar == 'S');
+        
+        sc.nextLine();
+        
+        System.out.println("\nPressione ENTER para voltar ao menu...");
+        sc.nextLine();
     }
     
     public static void ex4(Scanner sc) {
@@ -179,6 +190,10 @@ public class ExerciciosRepeticao2 {
         } while (!valido);
         
         System.out.println("\nUsuário cadastrado com sucesso.");
+        sc.nextLine(); 
+        
+        System.out.println("\nPressione ENTER para voltar ao menu...");
+        sc.nextLine();
     }
     
     public static void ex5(Scanner sc) {
@@ -186,12 +201,16 @@ public class ExerciciosRepeticao2 {
         
         System.out.print("Insira o número para ver sua tabuada (1 ao 10): ");
         int x = sc.nextInt();
-        sc.nextLine(); 
         
         System.out.println();
         for (int i = 1; i <= 10; i++) {
             int vezes = x * i;
             System.out.printf("%d X %d = %d\n", x, i, vezes);
         }
+        
+        sc.nextLine();
+        
+        System.out.println("\nPressione ENTER para voltar ao menu...");
+        sc.nextLine();
     }
 }
