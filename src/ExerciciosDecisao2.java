@@ -22,7 +22,7 @@ public class ExerciciosDecisao2 {
             
             if (sc.hasNextInt()) {
                 opcao = sc.nextInt();
-                sc.nextLine(); // Limpa o buffer do Enter
+                sc.nextLine();
             } else {
                 sc.nextLine();
                 opcao = -1;
