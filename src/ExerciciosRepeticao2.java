@@ -42,7 +42,7 @@ public class ExerciciosRepeticao2 {
 	        		ex4(sc);
 	        		break;
 	        	case 5:
-	        		System.out.println("EM BREVE");
+	        		ex5(sc);
 	        		break;
 	        	case 0:
 					System.out.println("Programa encerrado.");
@@ -185,5 +185,19 @@ public class ExerciciosRepeticao2 {
 		} while (senha <= 0 || senha == cod);
 		
 		System.out.println("\nUsuário cadastrado com sucesso.");
+	}
+	
+	public static void ex5(Scanner sc) {
+		System.out.println("\n=== Exercício 5 ===");
+		
+		System.out.println("\nInsira o número para ver sua tabuada de 1 ao 10: ");
+		int x = sc.nextInt();
+		System.out.println("");
+		int vezes;
+		
+		for(int i = 1; i <=10; i++) {
+			vezes = x*i;
+			System.out.printf("%d X %d = %d\n", x, i, vezes);
+		}
 	}
 }
