@@ -45,7 +45,7 @@ public class ExerciciosDecisao2 {
                     ex5(sc);
                     break;
                 case 6:
-                    System.out.println("EM BREVE");
+                    ex6(sc);
                     break;
                 case 7:
                     System.out.println("EM BREVE");
@@ -217,6 +217,33 @@ public class ExerciciosDecisao2 {
     	} else {
     		System.out.println("\nSem direito à troca de óleo de cortesia.");
     	}
+    }
+    
+    public static void ex6(Scanner sc) {
+        System.out.println("\n=== Exercício 6 ===");
+        
+        int[] lados = new int[3];
+        
+        System.out.println("Insira os lados de um triângulo (números inteiros):");
+        
+        for (int i = 0; i < lados.length; i++) {
+            System.out.printf("Insira o lado %d: ", (i + 1));
+            lados[i] = sc.nextInt();
+        }
+
+        boolean eTriangulo = (lados[0] + lados[1] > lados[2]) &&
+                             (lados[0] + lados[2] > lados[1]) &&
+                             (lados[1] + lados[2] > lados[0]);
+        
+        if (!eTriangulo) {
+            System.out.println("Os lados informados NÃO formam um triângulo.");
+        } else if (lados[0] == lados[1] && lados[1] == lados[2]) {
+            System.out.println("Triângulo Equilátero (3 lados iguais).");
+        } else if (lados[0] != lados[1] && lados[1] != lados[2] && lados[0] != lados[2]) {
+            System.out.println("Triângulo Escaleno (3 lados diferentes).");
+        } else {
+            System.out.println("Triângulo Isósceles (2 lados iguais).");
+        }
     }
 }
 
