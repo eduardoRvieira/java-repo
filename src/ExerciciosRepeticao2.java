@@ -20,7 +20,13 @@ public class ExerciciosRepeticao2 {
 	        System.out.println("---------------------------------");
 	        System.out.println("Escolha uma opção: ");
 	        
-	        opcao = Integer.parseInt(sc.nextLine());
+	        if (sc.hasNextInt()) {
+                opcao = sc.nextInt();
+                sc.nextLine();
+            } else {
+                sc.nextLine();
+                opcao = -1;
+            }
 	        
 	        switch (opcao) {
 	        	case 1:
@@ -33,7 +39,7 @@ public class ExerciciosRepeticao2 {
 	        		ex3(sc);
 	        		break;
 	        	case 4:
-	        		System.out.println("EM BREVE");
+	        		ex4(sc);
 	        		break;
 	        	case 5:
 	        		System.out.println("EM BREVE");
@@ -149,5 +155,35 @@ public class ExerciciosRepeticao2 {
 	        desejarContinuar = sc.next().toUpperCase().charAt(0);
 
 	    } while (desejarContinuar == 'S');
+	}
+	
+	public static void ex4(Scanner sc) {
+		System.out.println("\n=== Exercício 4 ===");
+		
+		System.out.println("CADASTRO DE USUÁRIO\n");
+		
+		int cod;
+		int senha;
+		
+		do {
+			System.out.println("Insira o código de usuário (número  positivo inteiro): ");
+			cod = sc.nextInt();
+			if (cod <= 0) {
+				System.out.println("ERRO: O código deve ser um número positivo maior que zero.\n");
+			}
+		} while (cod <= 0);
+		
+		do {
+			System.out.println("Insira a senha (número positivo inteiro): ");
+			senha = sc.nextInt();
+			
+			if (senha <= 0) {
+				System.out.println("ERRO: A senha deve ser um número positivo maior que zero.\n");
+			} else if (senha == cod){
+				System.out.println("ERRO: A senha não pode ser igual ao código de usuário. Tente novamente.\n");
+			}
+		} while (senha <= 0 || senha == cod);
+		
+		System.out.println("\nUsuário cadastrado com sucesso.");
 	}
 }
